@@ -1,0 +1,78 @@
+@font-face {
+	font-family: 'ubuntu-mono';
+	src: url('../fonts/ubuntu-mono.ttf');
+}
+
+body {
+	background-color: #eee;
+}
+
+* {
+	font-family: ubuntu-mono;
+	user-select: none;
+	cursor: default;
+	box-sizing: border-box;
+}
+
+input {
+	cursor: text;
+	outline: none;
+}
+
+dialog {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: #eee;
+	margin: 0 auto;
+}
+
+#app-box{
+	border: none;
+	padding: 0;
+}
+
+#toolbar {
+	margin-top: 1em;
+}
+
+input, button {
+	padding: 5px;
+}
+
+button {
+	width: 50px;
+}
+
+.spacer {
+	margin: 0 10px 0 10px;
+}
+
+.loader {
+	border: 8px solid #ccc;
+	border-radius: 50%;
+	border-top: 8px solid #000;
+	width: 60px;
+	height: 60px;
+	-webkit-animation: spin 2s linear infinite; /* Safari */
+	animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+#loading-box, #alert-box {
+	padding: 1em;
+}
+
+#alert-box button {
+	margin-top: 1em;
+	float: right;
+}
