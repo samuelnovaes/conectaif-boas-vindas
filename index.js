@@ -4,8 +4,8 @@ const path = require('path')
 app.on('ready', () => {
 	const win = new BrowserWindow({
 		title: 'Conecta IF - Boas Vindas',
-		width: 672,
-		height: 558,
+		width: 700,
+		height: 600,
 		resizable: false,
 		show: false
 	})
