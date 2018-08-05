@@ -96,7 +96,7 @@ btnSend.onclick = () => {
 		loading.show()
 		axios.post('http://conectaif-com.umbler.net', data).then(response => {
 			loading.close()
-			_alert('Boas vindas enviado com sucesso!')
+			_alert('Boas vindas enviada com sucesso!')
 		}).catch(error => {
 			loading.close()
 			_alert(error.response ? error.response.data : error.message)
