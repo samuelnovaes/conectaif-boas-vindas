@@ -68,11 +68,28 @@ button {
 	100% { transform: rotate(360deg); }
 }
 
-#loading-box, #alert-box {
+#loading-box, #alert-box, #credit {
 	padding: 1em;
 }
 
-#alert-box button {
+#alert-box button, #credit button {
 	margin-top: 1em;
 	float: right;
+}
+
+#credit a {
+	cursor: pointer;
+}
+
+#credit img {
+	-webkit-user-drag: none;
+}
+
+#dev-btn {
+	float: right;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
 }

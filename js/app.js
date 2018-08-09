@@ -1,5 +1,6 @@
 const axios = require('axios')
 const path = require('path')
+const electron = require('electron')
 
 const video = document.createElement('video')
 const canvas = document.getElementById('canvas')
@@ -11,7 +12,13 @@ const txtEmail = document.getElementById('email')
 const loading = document.getElementById('loading-box')
 const alertBox = document.getElementById('alert-box')
 const alertBtn = alertBox.querySelector('button')
+const credit = document.getElementById('credit')
+const creditLink = credit.querySelector('a')
+const creditBtn = credit.querySelector('button')
+const devBtn = document.getElementById('dev-btn')
 const ctx = canvas.getContext('2d')
+
+credit.showModal()
 
 const moldura = document.createElement('img')
 moldura.src = path.join(__dirname, 'img', 'moldura.png')
@@ -26,7 +33,7 @@ navigator.getMedia = (
 const _alert = (msg = '') => {
 	alertBox.querySelector('p').innerText = msg
 	alertBtn.focus()
-	alertBox.show()
+	alertBox.showModal()
 }
 
 const handleVideo = stream => {
@@ -93,7 +100,7 @@ btnSend.onclick = () => {
 		data.append('name', txtName.value)
 		data.append('email', txtEmail.value)
 		data.append('image', dataURItoBlob(canvas.toDataURL('image/jpeg', 1)))
-		loading.show()
+		loading.showModal()
 		axios.post('http://conectaif-com.umbler.net', data).then(response => {
 			loading.close()
 			_alert('Boas vindas enviada com sucesso!')
@@ -104,6 +111,19 @@ btnSend.onclick = () => {
 	}
 }
 
+creditLink.onclick = e => {
+	electron.shell.openExternal(e.target.href)
+	e.preventDefault()
+}
+
 alertBtn.onclick = () => {
 	alertBox.close()
+}
+
+creditBtn.onclick = () => {
+	credit.close()
+}
+
+devBtn.onclick = () => {
+	credit.showModal()
 }
